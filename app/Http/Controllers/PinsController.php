@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pin;
+use Auth;
 
 class PinsController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth')->except(['index', 'show']);
+	}
+
 	public function index()
 	{
 		$pins = Pin::orderBy("created_at DESC")->get();
@@ -25,7 +31,7 @@ class PinsController extends Controller
 
 	public function store(Request $request)
 	{
-		$pin = Pin::create($request->all());
+		$pin = Auth::user()->pins()->create($request->all());
 		return redirect(action('PinsController@show', $pin->id));
 	}
 

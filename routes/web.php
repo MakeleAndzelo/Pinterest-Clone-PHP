@@ -13,3 +13,5 @@
 
 Route::get('/', 'PinsController@index');
 Route::resource('pins', 'PinsController');
+Auth::routes();
+Route::get('/home', 'PinsController@index');
