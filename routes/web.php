@@ -11,6 +11,9 @@
 |
 */
 
+Route::name('pins.favourite')->get('/pins/{pin}/favourite', 'PinsController@favourite');
+Route::name('pins.upvote')->get('/pins/{pin}/upvote', "PinsController@upvote");
+Route::name('pins.downvote')->get('/pins/{pin}/downvote', 'PinsController@downvote');
 Route::get('/', 'PinsController@index');
 Route::resource('pins', 'PinsController');
 Auth::routes();

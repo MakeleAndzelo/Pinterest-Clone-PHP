@@ -55,4 +55,16 @@ class PinsController extends Controller
 		$pin->delete();
 		return redirect(action("PinsController@index"));
 	}
+
+	public function upvote(Pin $pin)
+	{
+		$pin->like();
+		return redirect()->back();
+	}
+
+	public function downvote(Pin $pin)
+	{
+		$pin->unlike();
+		return redirect()->back();
+	}
 }
