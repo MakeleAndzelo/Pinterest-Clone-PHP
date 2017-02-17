@@ -5,4 +5,5 @@
 	<p>
 		{{ $pin->description }}
 	</p>
+	<img src="{{ '/storage' . $pin->image_path }} ">
 @endsection

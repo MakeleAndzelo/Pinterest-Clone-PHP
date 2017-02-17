@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pin;
 use Auth;
+use Storage;
 
 class PinsController extends Controller
 {
@@ -32,6 +33,9 @@ class PinsController extends Controller
 	public function store(Request $request)
 	{
 		$pin = Auth::user()->pins()->create($request->all());
+		$image = $request->file('image')->store('public/images');
+		$pin->image_path = trim($image, "public");
+		$pin->save();
 		return redirect(action('PinsController@show', $pin->id));
 	}
 

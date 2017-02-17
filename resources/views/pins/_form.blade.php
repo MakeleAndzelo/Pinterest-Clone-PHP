@@ -8,5 +8,9 @@
 		<input type="text" name="description" id="description" value="{{ isset($pin->description) ? $pin->description : NULL }}">
 	</p>
 	<p>
+		<label for="image">Image: </label>
+		<input type="file" name="image" id="image">
+	</p>
+	<p>
 		<button type="submit">{{ $btn }} pin</button>
 	</p>
