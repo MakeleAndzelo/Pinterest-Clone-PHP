@@ -32,9 +32,9 @@ class PinsController extends Controller
 
 	public function store(Request $request)
 	{
+		$image = $request->file('image')->store('/images');
 		$pin = Auth::user()->pins()->create($request->all());
-		$image = $request->file('image')->store('public/images');
-		$pin->image_path = trim($image, "public");
+		$pin->image_path = $image;
 		$pin->save();
 		return redirect(action('PinsController@show', $pin->id));
 	}

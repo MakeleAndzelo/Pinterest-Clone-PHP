@@ -5,7 +5,7 @@
 	<p>
 		{{ $pin->description }}
 	</p>
-	<img src="{{ '/storage' . $pin->image_path }} ">
+	<img src="{{ '/' . $pin->image_path }} ">
 
 	<small>{{ $pin->likeCount }}</small>
 	@if(!$pin->liked())
