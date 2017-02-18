@@ -13,4 +13,11 @@
 	@else
 		<a href="{{ route('pins.downvote', $pin->id) }}">Downvote</a>
 	@endif
+	<h1>
+		<form action="{{ route('pins.destroy', $pin->id) }}" method="POST">
+			{{ csrf_field() }}
+			{{ method_field("DELETE") }}
+			<button type="submit">Delete</button>
+		</form>
+	</h1>
 @endsection

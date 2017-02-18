@@ -32,8 +32,9 @@ class PinsController extends Controller
 
 	public function store(Request $request)
 	{
-		$image = $request->file('image')->store('/images');
 		$pin = Auth::user()->pins()->create($request->all());
+		// $image = $request->file('image')->store('/images');
+		$image = Storage::disk('local')->put('images', $request->file('image'));
 		$pin->image_path = $image;
 		$pin->save();
 		return redirect(action('PinsController@show', $pin->id));
@@ -53,6 +54,7 @@ class PinsController extends Controller
 	public function destroy(Pin $pin)
 	{
 		$pin->delete();
+		Storage::delete($pin->image_path);
 		return redirect(action("PinsController@index"));
 	}
 
