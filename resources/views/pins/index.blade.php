@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-	<h1>All pins</h1>
-		<table>
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($pins as $pin)
-					<tr>
-						<td>{{ $pin->id }}</td>
-						<td><a href="{{ action('PinsController@show', $pin->id)}}">{{ $pin->name }}</a></td>
-					</tr>		
-				@endforeach
-			</tbody>
-		</table>
+	<div class="columns is-multiline">
+		@foreach($pins as $pin)
+			<div class="column is-4">
+				<a href="{{ route('pins.show', $pin->id) }}">
+					<figure class="image">
+						<img src="/{{ $pin->image_path }}" alt="">
+						<figcaption>
+							<h1>{{ $pin->name }}</h1>
+							<small>Subbmited by {{ $pin->user->name }} {{ $pin->created_at->diffForHumans() }}</small>
+						</figcaption>
+					</figure>
+				</a>
+			</div>
+		@endforeach
+	</div>
+@endsection
 
-		<a href="{{ action('PinsController@create') }}">New pin</a>
+@section('footer')
+
 @endsection

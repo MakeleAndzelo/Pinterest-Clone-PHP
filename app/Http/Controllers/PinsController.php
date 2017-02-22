@@ -32,8 +32,12 @@ class PinsController extends Controller
 
 	public function store(Request $request)
 	{
+/*		$this->validate($request, [
+			'name' => 'required|min:3',
+			'description' => 'required|min:20',
+			'image' => 'mimes:jpg,png,bmp|required'
+		]);*/
 		$pin = Auth::user()->pins()->create($request->all());
-		// $image = $request->file('image')->store('/images');
 		$image = Storage::disk('local')->put('images', $request->file('image'));
 		$pin->image_path = $image;
 		$pin->save();

@@ -5,7 +5,7 @@
 	</p>
 	<p>
 		<label for="description">Description: </label>
-		<input type="text" name="description" id="description" value="{{ isset($pin->description) ? $pin->description : NULL }}">
+		<textarea type="text" name="description" id="description">{{ isset($pin->description) ? $pin->description : NULL }}</textarea>
 	</p>
 	<p>
 		<label for="image">Image: </label>
