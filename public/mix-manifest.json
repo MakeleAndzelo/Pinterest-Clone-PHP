@@ -1,0 +1,8 @@
+{
+  "/js/vendor/jquery.js": "/js/vendor/jquery.js",
+  "/js/vendor/app.js": "/js/vendor/app.js",
+  "/css/vendor/app.css": "/css/vendor/app.css",
+  "/css/vendor/bulma.css": "/css/vendor/bulma.css",
+  "/css/vendor/font-awesome.css": "/css/vendor/font-awesome.css",
+  "/css/app.css": "/css/app.css"
+}

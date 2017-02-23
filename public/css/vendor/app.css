@@ -1,0 +1,39 @@
+html {
+  background: #E9EBEE;
+}
+
+#logo {
+  font-weight: 700;
+  color: black;
+  font-size: 2rem;
+}
+
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+#logout-form {
+  display: none;
+}
+
+nav {
+  margin-bottom: 60px;
+}
+
+figure figcaption {
+  border-radius: 0 0 10px 10px;
+  background: white;
+  text-align: center;
+  padding: 2rem 4rem;
+}
+
+figure figcaption h1 {
+  font-size: 2rem;
+}
+
+a {
+  color: inherit;
+}
